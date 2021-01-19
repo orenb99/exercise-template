@@ -1,3 +1,4 @@
+
 function remove(arr,slot){
     let a1=[];
     for(let i=0;i<arr.indexOf(slot);i++){
@@ -14,7 +15,7 @@ function removeAll(arr,str){
     }
     return arr;
     }
-
+    
 function run() {
     const input = document.getElementById("input").value;
     const output = document.getElementById("output");
@@ -33,18 +34,17 @@ function run() {
     let temp=[];
     for(let i=0;i<arr.length;i++){
         for(let j=0;j<arr.length;j++){
-            if(i!=j&&arr[i]===arr[j]){
+            if(i!==j&&arr[i]===arr[j]){
                 temp.push(arr[i]);
+                break;
             }
         }
     }
     let final=[]
-    do{
-        let c=temp[0];
-        final.push(c);
-        removeAll(temp,c);
-    }
-    while(temp!==[])
-    output.innerText = final;
+     while(temp.length!==0){
+        final.push(temp[0]);
+        temp=removeAll(temp,temp[0]);
+     }
+        output.innerText = final;
 }
     
