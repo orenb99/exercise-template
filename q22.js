@@ -12,7 +12,12 @@ function run() {
     if(bol===true)
       if(Array.isArray(JSON.parse(input)))
           arr=JSON.parse(input);
-    
-    output.innerText = arr;
+    let final=[];
+    for(let i=0;i<arr.length;i++){
+      for(let j=0;j<arr[i].length;j++){
+        final.push(arr[i][j]);
+      }
+    }
+    output.innerText = final;
 }
     
