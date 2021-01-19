@@ -16,11 +16,17 @@ return arr;
 }
 
 function run() {
-    const input = document.getElementById("input").value;
+    let input = document.getElementById("input").value;
     const output = document.getElementById("output");
     let arr=[];
     let out = "";
     let bol=true;
+    while(input.includes("undefined")){
+        input=input.replace("undefined","");
+    }
+    while(input.includes("NaN")){
+        input.replace("NaN","");
+    }
     try {
         JSON.parse(input);
   } catch {
@@ -34,16 +40,10 @@ function run() {
     for(let i=0;i<arr.length;i++){
         if(arr[i]==="")
             arr[i]=0;
-        if(typeof arr[i]===undefined)
-            arr[i]=0;
-        if(typeof arr[i]===Number(NaN))
-            arr[i]=0;
         }
     arr=removeAll(arr,null);
     arr=removeAll(arr,0);
     arr=removeAll(arr,false);
-
-    
     output.innerText = arr;
 
 
