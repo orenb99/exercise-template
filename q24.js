@@ -1,19 +1,19 @@
-function remove(arr,slot){
+function remove(arr,str){
     let a1=[];
-    for(let i=0;i<arr.indexOf(slot);i++){
+    for(let i=0;i<arr.indexOf(str);i++){
         a1.push(arr[i]);
     }
-    for(let i=arr.indexOf(slot)+1;i<arr.length;i++){
+    for(let i=arr.indexOf(str)+1;i<arr.length;i++){
         a1.push(arr[i]);
     }
     return a1;
 }
 function removeAll(arr,str){
-    while(arr.includes(str)){
-        arr=remove(arr,str)
-    }
-    return arr;
-    }
+while(arr.includes(str)){
+    arr=remove(arr,str)
+}
+return arr;
+}
 
 function run() {
     const input = document.getElementById("input").value;
@@ -29,22 +29,23 @@ function run() {
     if(bol===true)
       if(Array.isArray(JSON.parse(input)))
           arr=JSON.parse(input);
-    
-    let temp=[];
+
+
     for(let i=0;i<arr.length;i++){
-        for(let j=0;j<arr.length;j++){
-            if(i!=j&&arr[i]===arr[j]){
-                temp.push(arr[i]);
-            }
+        if(arr[i]==="")
+            arr[i]=0;
+        if(typeof arr[i]===undefined)
+            arr[i]=0;
+        if(typeof arr[i]===Number(NaN))
+            arr[i]=0;
         }
-    }
-    let final=[]
-    do{
-        let c=temp[0];
-        final.push(c);
-        removeAll(temp,c);
-    }
-    while(temp!==[])
-    output.innerText = final;
+    arr=removeAll(arr,null);
+    arr=removeAll(arr,0);
+    arr=removeAll(arr,false);
+
+    
+    output.innerText = arr;
+
+
 }
     
