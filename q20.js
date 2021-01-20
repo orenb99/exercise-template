@@ -23,11 +23,6 @@ function run() {
             }
         }
     }
-    // let final=[]
-    //  while(temp.length!==0){
-    //     final.push(temp[0]);
-    //     temp=removeAll(temp,temp[0]);
-    //  }
         output.innerText = temp;
 }
     
