@@ -1,21 +1,4 @@
 
-function remove(arr,slot){
-    let a1=[];
-    for(let i=0;i<arr.indexOf(slot);i++){
-        a1.push(arr[i]);
-    }
-    for(let i=arr.indexOf(slot)+1;i<arr.length;i++){
-        a1.push(arr[i]);
-    }
-    return a1;
-}
-function removeAll(arr,str){
-    while(arr.includes(str)){
-        arr=remove(arr,str)
-    }
-    return arr;
-    }
-    
 function run() {
     const input = document.getElementById("input").value;
     const output = document.getElementById("output");
@@ -34,17 +17,17 @@ function run() {
     let temp=[];
     for(let i=0;i<arr.length;i++){
         for(let j=0;j<arr.length;j++){
-            if(i!==j&&arr[i]===arr[j]){
+            if(i!==j&&arr[i]===arr[j]&&!temp.includes(arr[i])){
                 temp.push(arr[i]);
                 break;
             }
         }
     }
-    let final=[]
-     while(temp.length!==0){
-        final.push(temp[0]);
-        temp=removeAll(temp,temp[0]);
-     }
-        output.innerText = final;
+    // let final=[]
+    //  while(temp.length!==0){
+    //     final.push(temp[0]);
+    //     temp=removeAll(temp,temp[0]);
+    //  }
+        output.innerText = temp;
 }
     
