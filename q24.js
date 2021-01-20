@@ -20,32 +20,20 @@ function run() {
     const output = document.getElementById("output");
     let arr=[];
     let out = "";
-    let bol=true;
-    while(input.includes("undefined")){
-        input=input.replace("undefined","");
-    }
     while(input.includes("NaN")){
-        input.replace("NaN","");
+        input=input.replace("NaN","0");
     }
-    try {
-        JSON.parse(input);
-  } catch {
-        bol=false;
-      }
-    if(bol===true)
-      if(Array.isArray(JSON.parse(input)))
-          arr=JSON.parse(input);
 
-
+    arr=eval(input);
+    arr=removeAll(arr,null);
+    arr=removeAll(arr,0);
+    arr=removeAll(arr,false);
+    //arr=removeAll(arr,NaN);
+    arr=removeAll(arr,undefined);
     for(let i=0;i<arr.length;i++){
         if(arr[i]==="")
             arr[i]=0;
         }
-    arr=removeAll(arr,null);
-    arr=removeAll(arr,0);
-    arr=removeAll(arr,false);
     output.innerText = arr;
-
-
 }
     
